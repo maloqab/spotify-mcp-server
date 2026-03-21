@@ -1,32 +1,47 @@
-# Spotify MCP Server
+<p align="center">
+  <img src="icon.png" width="128" height="128" alt="Spotify MCP Server">
+</p>
 
-A Spotify MCP server for Claude, built with [FastMCP](https://github.com/modelcontextprotocol/python-sdk). Works with both Claude Desktop and Claude Code.
+<h1 align="center">Spotify MCP Server</h1>
+
+<p align="center">
+  Control Spotify from Claude -- playback, search, playlists, queue, and more.<br>
+  Built with <a href="https://github.com/modelcontextprotocol/python-sdk">FastMCP</a>. Works with Claude Desktop and Claude Code.
+</p>
+
+<p align="center">
+  <img src="demo.png" width="600" alt="Demo: asking Claude what's playing on Spotify">
+</p>
 
 ## Features
 
 16 tools for full Spotify control:
 
-- **Playback**: get current track, play, pause, skip, previous, volume
-- **Search**: tracks, albums, artists, playlists
-- **Queue**: view queue, add tracks
-- **Playlists**: list, view tracks, create, add/remove tracks
-- **Info**: track details, recently played
+| Category | Tools |
+|----------|-------|
+| **Playback** | get current track, play, pause, skip, previous, volume |
+| **Search** | tracks, albums, artists, playlists |
+| **Queue** | view queue, add tracks |
+| **Playlists** | list, view tracks, create, add/remove tracks |
+| **Info** | track details, recently played |
 
 ## Prerequisites
 
 1. Go to [developer.spotify.com/dashboard](https://developer.spotify.com/dashboard)
 2. Create an app
 3. Set redirect URI to `http://127.0.0.1:8080/callback`
-4. Copy your Client ID and Client Secret
+4. Copy your **Client ID** and **Client Secret**
 
-## Claude Desktop (one-click install)
+## Install
+
+### Claude Desktop (one-click)
 
 1. Download `spotify-mcp-server-0.1.0.mcpb` from [Releases](https://github.com/maloqab/spotify-mcp-server/releases)
 2. Double-click the file
-3. Claude Desktop will prompt you for your Spotify Client ID and Client Secret
-4. Done — tools appear immediately
+3. Enter your Spotify Client ID and Client Secret when prompted
+4. Done
 
-## Claude Desktop (manual config)
+### Claude Desktop (manual config)
 
 Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 
@@ -46,18 +61,20 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 }
 ```
 
-## Claude Code
+### Claude Code
 
 ```bash
 git clone https://github.com/maloqab/spotify-mcp-server.git
-cd spotify-mcp-server
-uv sync
+cd spotify-mcp-server && uv sync
 ```
 
 Authenticate (run once):
 
 ```bash
-SPOTIFY_CLIENT_ID="your_id" SPOTIFY_CLIENT_SECRET="your_secret" SPOTIFY_REDIRECT_URI="http://127.0.0.1:8080/callback" uv run python -c "from server import get_spotify; get_spotify(); print('Done')"
+SPOTIFY_CLIENT_ID="your_id" \
+SPOTIFY_CLIENT_SECRET="your_secret" \
+SPOTIFY_REDIRECT_URI="http://127.0.0.1:8080/callback" \
+uv run python -c "from server import get_spotify; get_spotify(); print('Done')"
 ```
 
 Add to Claude Code:
@@ -79,3 +96,7 @@ claude mcp add-json "spotify" '{
 - Python 3.10+
 - [uv](https://docs.astral.sh/uv/)
 - Spotify Premium (for playback control)
+
+## License
+
+MIT
