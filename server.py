@@ -176,8 +176,8 @@ def get_my_playlists(limit: int = 20) -> str:
             "name": p["name"],
             "id": p["id"],
             "uri": p["uri"],
-            "tracks": p["tracks"]["total"],
-            "public": p["public"],
+            "tracks": p.get("tracks", {}).get("total", 0),
+            "public": p.get("public"),
         })
     return json.dumps(playlists, indent=2)
 
