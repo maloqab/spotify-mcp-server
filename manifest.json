@@ -1,0 +1,78 @@
+{
+  "manifest_version": "0.4",
+  "name": "spotify-mcp-server",
+  "display_name": "Spotify",
+  "version": "0.1.0",
+  "description": "Control Spotify from Claude — playback, search, playlists, queue, and more",
+  "author": {
+    "name": "maloqab",
+    "url": "https://github.com/maloqab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maloqab/spotify-mcp-server"
+  },
+  "server": {
+    "type": "uv",
+    "entry_point": "src/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run", "python", "${__dirname}/src/server.py"],
+      "env": {
+        "SPOTIFY_CLIENT_ID": "${user_config.spotify_client_id}",
+        "SPOTIFY_CLIENT_SECRET": "${user_config.spotify_client_secret}",
+        "SPOTIFY_REDIRECT_URI": "${user_config.spotify_redirect_uri}"
+      }
+    }
+  },
+  "user_config": {
+    "spotify_client_id": {
+      "type": "string",
+      "title": "Spotify Client ID",
+      "description": "Your Spotify app Client ID from developer.spotify.com/dashboard",
+      "required": true,
+      "sensitive": true
+    },
+    "spotify_client_secret": {
+      "type": "string",
+      "title": "Spotify Client Secret",
+      "description": "Your Spotify app Client Secret from developer.spotify.com/dashboard",
+      "required": true,
+      "sensitive": true
+    },
+    "spotify_redirect_uri": {
+      "type": "string",
+      "title": "Redirect URI",
+      "description": "OAuth redirect URI (must match your Spotify app settings)",
+      "required": false,
+      "default": "http://127.0.0.1:8080/callback"
+    }
+  },
+  "tools": [
+    { "name": "get_current_track", "description": "Get the currently playing track" },
+    { "name": "play", "description": "Start or resume playback, optionally play a specific URI" },
+    { "name": "pause", "description": "Pause playback" },
+    { "name": "skip", "description": "Skip to next track" },
+    { "name": "previous", "description": "Go back to previous track" },
+    { "name": "set_volume", "description": "Set playback volume (0-100)" },
+    { "name": "search", "description": "Search for tracks, albums, artists, or playlists" },
+    { "name": "get_queue", "description": "Get the current playback queue" },
+    { "name": "add_to_queue", "description": "Add a track to the queue" },
+    { "name": "get_my_playlists", "description": "Get your playlists" },
+    { "name": "get_playlist_tracks", "description": "Get tracks in a playlist" },
+    { "name": "create_playlist", "description": "Create a new playlist" },
+    { "name": "add_tracks_to_playlist", "description": "Add tracks to a playlist" },
+    { "name": "remove_tracks_from_playlist", "description": "Remove tracks from a playlist" },
+    { "name": "get_track_info", "description": "Get detailed info about a track" },
+    { "name": "get_recently_played", "description": "Get recently played tracks" }
+  ],
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "python": ">=3.10"
+    }
+  },
+  "privacy_policies": [],
+  "keywords": ["spotify", "music", "playback", "playlists", "streaming"],
+  "license": "MIT"
+}
