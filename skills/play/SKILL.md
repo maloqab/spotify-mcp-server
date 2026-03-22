@@ -45,7 +45,10 @@ playlists = json.loads(get_my_playlists(50))
 match = None
 nq = normalize(query)
 for p in playlists:
-    if nq in normalize(p['name']) or normalize(p['name']) in nq:
+    np = normalize(p['name'])
+    if not np or not nq:
+        continue
+    if nq in np or np in nq:
         match = p
         break
 
