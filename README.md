@@ -24,7 +24,7 @@ This project solves all three by giving you multiple install paths:
 | Path | For | How |
 |------|-----|-----|
 | **`.mcpb` extension** | Claude Desktop users | Download, double-click, enter creds, done |
-| **Plugin with slash commands** | Claude Code users | `claude plugin add`, use `/spotify:play` etc. |
+| **Plugin with slash commands** | Claude Code users | `claude plugin marketplace add` + `install`, use `/spotify:play` etc. |
 | **MCP server** | Manual config | Standard `claude_desktop_config.json` setup |
 
 Built from scratch with [FastMCP](https://github.com/modelcontextprotocol/python-sdk) (MCP SDK v1.26+), not forked from broken repos.
@@ -88,7 +88,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 Install as a plugin for slash commands:
 
 ```bash
-claude plugin marketplace add github:maloqab/spotify-mcp-server
+claude plugin marketplace add maloqab/spotify-mcp-server
 claude plugin install spotify
 ```
 
