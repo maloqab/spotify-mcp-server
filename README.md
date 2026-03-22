@@ -57,7 +57,37 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 }
 ```
 
-### Claude Code
+### Claude Code (plugin with slash commands)
+
+```bash
+claude plugin add github:maloqab/spotify-mcp-server
+```
+
+Set your credentials:
+
+```bash
+export SPOTIFY_CLIENT_ID="your_id"
+export SPOTIFY_CLIENT_SECRET="your_secret"
+export SPOTIFY_REDIRECT_URI="http://127.0.0.1:8080/callback"
+export SPOTIFY_MCP_DIR="/path/to/spotify-mcp-server"
+```
+
+Then use slash commands:
+
+```
+/spotify:now-playing          # What's playing?
+/spotify:play Yesterday       # Play a song
+/spotify:pause                # Pause
+/spotify:skip                 # Next track
+/spotify:previous             # Previous track
+/spotify:search Drake         # Search for music
+/spotify:queue                # View queue
+/spotify:playlists            # List playlists
+/spotify:volume 75            # Set volume
+/spotify:recently-played      # Recent history
+```
+
+### Claude Code (MCP server)
 
 ```bash
 git clone https://github.com/maloqab/spotify-mcp-server.git

@@ -1,0 +1,13 @@
+{
+  "name": "spotify",
+  "version": "0.1.0",
+  "description": "Control Spotify from Claude Code — playback, search, playlists, queue, and more",
+  "author": {
+    "name": "maloqab",
+    "url": "https://github.com/maloqab"
+  },
+  "repository": "https://github.com/maloqab/spotify-mcp-server",
+  "license": "MIT",
+  "keywords": ["spotify", "music", "playback", "playlists"],
+  "skills": "./skills/"
+}
