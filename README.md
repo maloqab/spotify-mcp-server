@@ -9,10 +9,6 @@
   Built with <a href="https://github.com/modelcontextprotocol/python-sdk">FastMCP</a>. Works with Claude Desktop and Claude Code.
 </p>
 
-<p align="center">
-  <img src="demo.png" width="600" alt="Demo: asking Claude what's playing on Spotify">
-</p>
-
 ## Features
 
 16 tools for full Spotify control:
