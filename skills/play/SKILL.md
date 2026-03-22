@@ -67,4 +67,4 @@ else:
 "
 ```
 
-Replace `QUERY` with the user's search query. The `$SPOTIFY_MCP_DIR` env var should point to the spotify-mcp-server directory. If not set, use `/Users/jarvisz/spotify-mcp-server` as fallback.
+Replace `QUERY` with the user's search query. The `$SPOTIFY_MCP_DIR` env var must point to the spotify-mcp-server directory.

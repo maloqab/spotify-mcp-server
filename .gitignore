@@ -1,6 +1,9 @@
 .cache
+.spotify-mcp-cache
 .venv/
 __pycache__/
 *.pyc
+*.pem
+*.mcpb
 .env
 uv.lock
