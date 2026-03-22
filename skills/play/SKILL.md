@@ -33,15 +33,19 @@ First check if it matches one of the user's playlists. If it does, play that pla
 ```bash
 uv run --directory "$SPOTIFY_MCP_DIR" python -c "
 from server import get_my_playlists, search, play
-import json
+import json, re
 
 query = 'QUERY'
 
-# Check playlists first
+def normalize(s):
+    return re.sub(r'[^a-z0-9 ]', '', s.lower()).strip()
+
+# Check playlists first (fuzzy match: ignore punctuation)
 playlists = json.loads(get_my_playlists(50))
 match = None
+nq = normalize(query)
 for p in playlists:
-    if query.lower() in p['name'].lower():
+    if nq in normalize(p['name']) or normalize(p['name']) in nq:
         match = p
         break
 
