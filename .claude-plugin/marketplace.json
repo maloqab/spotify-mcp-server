@@ -1,0 +1,13 @@
+{
+  "name": "spotify-mcp-server",
+  "owner": {
+    "name": "maloqab"
+  },
+  "plugins": [
+    {
+      "name": "spotify",
+      "source": "./",
+      "description": "Control Spotify from Claude Code"
+    }
+  ]
+}
