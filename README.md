@@ -88,7 +88,8 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 Install as a plugin for slash commands:
 
 ```bash
-claude plugin add github:maloqab/spotify-mcp-server
+claude plugin marketplace add github:maloqab/spotify-mcp-server
+claude plugin install spotify
 ```
 
 Set your credentials (add to your shell profile to persist):

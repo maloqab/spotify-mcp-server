@@ -1,6 +1,6 @@
 {
   "name": "spotify",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Control Spotify from Claude Code — playback, search, playlists, queue, and more",
   "author": {
     "name": "maloqab",
