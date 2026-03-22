@@ -11,6 +11,24 @@
 
 > **Note:** Spotify Premium is required for playback control (play, pause, skip, volume). Search and playlist features work on free accounts.
 
+## Why this exists
+
+Most Spotify MCP servers out there use outdated versions of the MCP SDK and don't work reliably with Claude. Common issues include:
+
+- **Tools don't show up** in Claude Code even when the server shows "Connected" ([known bug](https://github.com/anthropics/claude-code/issues/12164))
+- **No one-click install** for Claude Desktop. Every MCP server tells you to edit JSON config files manually
+- **No slash commands** for Claude Code. You're stuck hoping the MCP tools surface correctly
+
+This project solves all three by giving you multiple install paths:
+
+| Path | For | How |
+|------|-----|-----|
+| **`.mcpb` extension** | Claude Desktop users | Download, double-click, enter creds, done |
+| **Plugin with slash commands** | Claude Code users | `claude plugin add`, use `/spotify:play` etc. |
+| **MCP server** | Manual config | Standard `claude_desktop_config.json` setup |
+
+Built from scratch with [FastMCP](https://github.com/modelcontextprotocol/python-sdk) (MCP SDK v1.26+), not forked from broken repos.
+
 ## Features
 
 16 tools for full Spotify control:
